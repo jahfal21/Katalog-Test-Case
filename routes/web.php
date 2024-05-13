@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     // Home Routes
     Route::get('/home/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile'])->name('home.profile');
     Route::post('home/addTestCase', [App\Http\Controllers\HomeController::class, 'addTestCase'])->name('home.addTestCase');
+    Route::delete('home/deleteAllTestCase', [App\Http\Controllers\HomeController::class, 'deleteAllTestCase'])->name('home.deleteAllTestCase');
     Route::put('home/editTestCase/{id}', [App\Http\Controllers\HomeController::class, 'editTestCase'])->name('home.editTestCase');
     Route::delete('home/deleteTestCase/{id}', [App\Http\Controllers\HomeController::class, 'deleteTestCase'])->name('home.deleteTestCase');
     Route::get('home/showUser', [App\Http\Controllers\HomeController::class, 'showUser'])->name('home.showUser');

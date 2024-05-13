@@ -24,6 +24,11 @@
                         <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addTestCaseModal">
                             Add Test Case
                         </button>
+                        <form action="{{ route('home.deleteAllTestCase') }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete all test cases?')">Delete All</button>
+                        </form>
                     </div>
                     <div class="card">                   
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -161,6 +166,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
+                    <div class="d-flex justify-content-end px-3 pb-3">
+                        <button type="button" class="btn btn-primary" id="sortAlphabetically">
+                            Sort Alphabetically
+                        </button>
+                    </div>
                     <div class="card">  
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h3 class="mb-0">List Test Case</h3>
@@ -286,7 +296,7 @@
     </div>
 
     <script>
-    $(document).ready(function () {
+        $(document).ready(function () {
         $('#searchInput').on('keyup', function () {
             var searchText = $(this).val().toLowerCase();
             filterData(searchText);
@@ -297,15 +307,21 @@
             if (selectedFilter === 'default') {
                 $('#filterValue').empty().attr('disabled', true);
                 filterData('');
+                $('#sortAlphabetically').attr('disabled', false); 
             } else if (selectedFilter === 'module') {
                 populateFilterOptions(selectedFilter);
                 $('#filterValue').attr('disabled', false).val('').focus();
+                $('#sortAlphabetically').attr('disabled', true); 
             }
         });
 
         $('#filterValue').change(function() {
             var filterValue = $(this).val();
             filterDataByFilterValue(filterValue);
+        });
+
+        $('#sortAlphabetically').click(function() {
+            sortDataAlphabetically();
         });
 
         function populateFilterOptions(filterType) {
@@ -346,6 +362,18 @@
         function filterDataByFilterValue(filterValue) {
             var searchText = $('#searchInput').val().toLowerCase();
             filterData(searchText);
+        }
+
+        function sortDataAlphabetically() {
+            var rows = $('#tableTestCase tbody').find('tr').get();
+            rows.sort(function(a, b) {
+                var keyA = $(a).children('td').eq(1).text(); 
+                var keyB = $(b).children('td').eq(1).text(); 
+                return keyA.localeCompare(keyB); 
+            });
+            $.each(rows, function(index, row) {
+                $('#tableTestCase').children('tbody').append(row);
+            });
         }
     });
     </script>

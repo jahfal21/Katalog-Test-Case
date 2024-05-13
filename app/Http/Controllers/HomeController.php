@@ -66,6 +66,15 @@ class HomeController extends Controller
         return redirect()->back()->with('success', 'Test Case Updated!');
     }
 
+    public function deleteAllTestCase()
+    {
+        $testCases = TestCase::all();
+        foreach ($testCases as $testCase) {
+            $testCase->delete();
+        }
+        return redirect()->back()->with('success', 'All test cases deleted successfully!');
+    }
+
     public function deleteTestCase($id)
     {
         $data_testcase = TestCase::findOrFail($id);
