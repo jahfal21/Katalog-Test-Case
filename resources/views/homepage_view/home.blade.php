@@ -239,6 +239,9 @@
             @endif
         </div>
     </div>
+    <button id="scrollToBottomBtn" class="btn btn-primary btn-sm" style="position: fixed; bottom: 20px; right: 20px; display: none;">
+        <i class="fas fa-chevron-down"></i> Scroll to Bottom
+    </button>
 
     {{-- Modal Add Test Case --}}
     <div class="modal fade" id="addTestCaseModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -363,6 +366,29 @@
             var searchText = $('#searchInput').val().toLowerCase();
             filterData(searchText);
         }
+
+        function checkBottom() {
+                var tableHeight = $('#tableTestCase').height();
+                var scrollPosition = $(window).scrollTop();
+                var windowHeight = $(window).height();
+
+                if (scrollPosition + windowHeight >= tableHeight) {
+                    $('#scrollToBottomBtn').fadeOut();
+                } else {
+                    $('#scrollToBottomBtn').fadeIn();
+                }
+            }
+
+            checkBottom();
+
+            $(window).scroll(function () {
+                checkBottom();
+            });
+
+            $('#scrollToBottomBtn').click(function () {
+                var tableHeight = $('#tableTestCase').height();
+                $('html, body').animate({ scrollTop: tableHeight }, 'slow');
+            });
 
         function sortDataAlphabetically() {
             var rows = $('#tableTestCase tbody').find('tr').get();
