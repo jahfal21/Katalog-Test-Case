@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- Logo --}}
-    <link rel="icon" href="{{ asset('images/n.png') }}">
+    <link rel="icon" href="{{ asset('images/logo_atas.png') }}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
@@ -34,26 +34,59 @@
     {{-- Jquery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
     <title>
         @yield('title')
     </title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    {{-- Header --}}
-    @include('homelayout.header')
+    <div class="content-wrapper">
+        {{-- Header --}}
+        @include('homelayout.header')
 
-    <div class="container-fluid">
-        <div class="row">
-            {{-- Sidebar --}}
-            @include('homelayout.sidebar')
-
-            {{-- Content --}}
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                @yield('content')
-            </main>
+        <div class="container-fluid main-content">
+            <div class="row">
+                {{-- Content --}}
+                <main class="col-md-12">
+                    @yield('content')
+                </main>
+            </div>
         </div>
+    </div>
+
+    {{-- Footer --}}
+    <div class="footer">
+        @include('homelayout.footer')
     </div>
 
     {{-- Modal --}}
@@ -64,9 +97,6 @@
 
     <!-- DataTables JS -->
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
-    {{-- Sidebars js --}}
-    <script src="{{ asset('js/sidebars.js') }}"></script>
 
     {{-- Style.js --}}
     <script src="{{ asset('js/style.js') }}"></script>

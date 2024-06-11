@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
         }
 
         User::create([
-            'fullname' => 'Admin',
+            'fullname' => 'Jahfal Mudrik Ramadhan',
             'username' => 'admin',
-            'no_hp' => '081234567890',
-            'password' => bcrypt('admin'),
+            'no_hp' => '0895383269891',
+            'password' => bcrypt('adminjahfalrpltelyu'),
             'role_id' => 1,
             'created_at' => now()
         ]);

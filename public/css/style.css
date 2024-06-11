@@ -19,14 +19,14 @@
 }
 .satu a {
     text-decoration: none;
-    color: #6D378F;
+    color: #2846b1;
     font-weight: 400;
     font-size: 14px;
 }
 
 .satu a:hover {
     text-decoration: none;
-    color: #663385;
+    color: #2846b1;
     font-weight: 400;
     font-size: 14px;
 }
@@ -36,14 +36,14 @@
 }
 
 .satu button:hover {
-    background-color: #663385;
-    border-color: #663385;
+    background-color: #2846b1;
+    border-color: #2846b1;
     color: #fff;
 }
 
 .btn-primary {
-    background-color: #6D378F;
-    border-color: #6D378F;
+    background-color: #2846b1;
+    border-color: #2846b1;
     color: #fff;
 }
 
@@ -57,8 +57,8 @@
 .dua img{
     margin-top: 100px;
     margin-left: 100px;
-    width: 550px;
-    height: 550px;
+    width: 400px;
+    height: 400px;
 }
 
 /* Style for register */
@@ -81,14 +81,14 @@
 }
 .regis a {
     text-decoration: none;
-    color: #6D378F;
+    color: #2846b1;
     font-weight: 400;
     font-size: 14px;
 }
 
 .regis a:hover {
     text-decoration: none;
-    color: #663385;
+    color: #2846b1;
     font-weight: 400;
     font-size: 14px;
 }
@@ -98,8 +98,8 @@
 }
 
 .regis button:hover {
-    background-color: #663385;
-    border-color: #663385;
+    background-color: #2846b1;
+    border-color: #2846b1;
     color: #fff;
 }
 
@@ -108,13 +108,13 @@
     background-color: #F6F2FF;
 }
 .blok .row a{
-    color: #6D378F;
+    color: #2846b1;
     font-weight: 600;
     font-size: 14px;
 }
 
 .card a{
-    color: #6D378F;
+    color: #2846b1;
     font-weight: 600;
     font-size: 14px;
 }
@@ -144,28 +144,28 @@
 }
 
 .btn-primary:hover {
-    background-color: #663385;
-    border-color: #663385;
+    background-color: #2846b1;
+    border-color: #2846b1;
     color: #fff;
 }
 .btn-check:focus+.btn-primary, .btn-primary:focus {
   color: #fff;
-  background-color: #663385;
-  border-color: #663385;
+  background-color: #2846b1;
+  border-color: #2846b1;
   box-shadow: 0 0 0 0.25rem rgb(109 55 143 / 50%);
 }
 
 .border-primary{
-    border-color: #6D378F !important;
+    border-color: #2846b1 !important;
 }
 
 .bg-primary{
-    background-color: #6D378F !important;
+    background-color: #2846b1 !important;
 }
 
 .form-check-input:checked {
-    background-color: #6D378F !important;
-    border-color: #6D378F !important;
+    background-color: #2846b1 !important;
+    border-color: #2846b1 !important;
 }
 
 /* Info Box For queue */

@@ -21,11 +21,16 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
                     <h3 class="mb-0">Manage User</h3>
-                    <div class="input-group" style="width: 200px;">
-                        <span class="input-group-text"><i class="fas fa-search"></i></span>
-                        <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                    <div class="d-flex flex-grow-1 justify-content-center mt-2 mt-md-0">
+                        <div class="input-group" style="max-width: 300px;">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="mt-2 mt-md-0">
+                        <a href="{{ url()->previous() }}" class="btn btn-primary text-white"><i class="fas fa-arrow-left"></i> Back</a>
                     </div>
                 </div>
                 <div class="card-body" style="overflow-x: auto;">
@@ -55,8 +60,7 @@
                                                 <form method="POST" action="{{ route('home.deleteUser', $user->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm me-2" onclick="return confirm('Are you sure you want to delete this?')"><i
-                                                        class="fas fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger btn-sm me-2" onclick="return confirm('Are you sure you want to delete this?')"><i class="fas fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -71,23 +75,23 @@
     </div>
 </div>
 
-    <script>
-        $(document).ready(function () {
-            $('#searchInput').on('keyup', function () {
-                var searchText = $(this).val().toLowerCase();
-                filterData(searchText);
-            });
-
-            function filterData(searchText) {
-                $('tbody tr').filter(function () {
-                    var rowText = $(this).text().toLowerCase();
-                    var showRow = true;
-                    if (searchText !== '') {
-                        showRow = rowText.indexOf(searchText) > -1;
-                    }
-                    $(this).toggle(showRow);
-                });
-            }
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            var searchText = $(this).val().toLowerCase();
+            filterData(searchText);
         });
-    </script>
+
+        function filterData(searchText) {
+            $('tbody tr').filter(function () {
+                var rowText = $(this).text().toLowerCase();
+                var showRow = true;
+                if (searchText !== '') {
+                    showRow = rowText.indexOf(searchText) > -1;
+                }
+                $(this).toggle(showRow);
+            });
+        }
+    });
+</script>
 @endsection
