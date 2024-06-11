@@ -6,5 +6,11 @@
 *.md diff=markdown
 *.php diff=php
 
+
+*.lock text eol=lf
+*.json text eol=lf
+*.php text eol=lf
+
+
 /.github export-ignore
 CHANGELOG.md export-ignore
